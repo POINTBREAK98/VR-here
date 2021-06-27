@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>VRhere.com</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+</head>
+<style>
+    body {
+      font: 400 15px Lato, sans-serif;
+      line-height: 1.8;
+      color: #818181;
+    }
+    h2 {
+      font-size: 24px;
+      text-transform: uppercase;
+      color: #303030;
+      font-weight: 600;
+      margin-bottom: 30px;
+    }
+    h4 {
+      font-size: 19px;
+      line-height: 1.375em;
+      color: #303030;
+      font-weight: 400;
+      margin-bottom: 30px;
+    }  
+    .jumbotron {
+      background-color: #ff5d52;
+      color: #fff;
+      padding: 100px 25px;
+      font-family: Montserrat, sans-serif;
+    }
+    .container-fluid {
+      padding: 60px 50px;
+    }
+    .bg-grey {
+      background-color: #f6f6f6;
+    }
+    .logo-small {
+      color: #ff5d52;
+      font-size: 50px;
+    }
+    .item h4 {
+      font-size: 19px;
+      line-height: 1.375em;
+      font-weight: 400;
+      font-style: italic;
+      margin: 70px 0;
+    }
+    .item span {
+      font-style: normal;
+    }
+  
+    .navbar {
+      margin-bottom: 0;
+      background-color: #ff5d52;
+      border: 0;
+      font-size: 12px !important;
+      line-height: 1.42857143 !important;
+      letter-spacing: 4px;
+      border-radius: 0;
+      font-family: Montserrat, sans-serif;
+    }
+    .navbar li a, .navbar .navbar-brand {
+      color: #fff !important;
+    }
+    .navbar-nav li a:hover, .navbar-nav li.active a {
+      color: #ff5d52 !important;
+      background-color: #fff !important;
+    }
+    .navbar-default .navbar-toggle {
+      border-color: transparent;
+      color: #fff !important;
+    }
+    footer .glyphicon {
+      font-size: 20px;
+      margin-bottom: 20px;
+      color: #ff5d52;
+    }
+    .slideanim {visibility:hidden;}
+    .slide {
+      animation-name: slide;
+      -webkit-animation-name: slide;
+      animation-duration: 1s;
+      -webkit-animation-duration: 1s;
+      visibility: visible;
+    }
+  
+   
+  
+    @keyframes slide {
+      0% {
+        opacity: 0;
+        transform: translateY(70%);
+      } 
+      100% {
+        opacity: 1;
+        transform: translateY(0%);
+      }
+    }
+    @-webkit-keyframes slide {
+      0% {
+        opacity: 0;
+        -webkit-transform: translateY(70%);
+      } 
+      100% {
+        opacity: 1;
+        -webkit-transform: translateY(0%);
+      }
+    }
+    @media screen and (max-width: 768px) {
+      .col-sm-4 {
+        text-align: center;
+        margin: 25px 0;
+      }
+      .btn-lg {
+        width: 100%;
+        margin-bottom: 35px;
+      }
+    }
+    @media screen and (max-width: 480px) {
+      .logo {
+        font-size: 150px;
+      }
+    }
+    </style>
+<body data-spy="scroll" data-target=".navbar" data-offset="60">
+    <nav class="navbar navbar-light navbar-expand-md bg-faded justify-content-center">
+        <div class="container">
+        <a href="/" class="navbar-brand d-flex w-50 mr-auto">VRhere</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsingNavbar3">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="navbar-collapse collapse w-100" id="collapsingNavbar3">
+            <ul class="nav navbar-nav ml-auto w-100 justify-content-end">
+                <li class="nav-item">
+                    <a class="nav-link" href="#about">ABOUT</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#services">SERVICES</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact">CONTACT</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link">{{username}}</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{%url 'login'%}">LOG OUT</a>
+                </li>
+            </ul>
+        </div>
+        </div>
+    </nav>
+    <br>
+      <div id="about" class="container">
+        <div class="row">
+          <div class="col-sm-8">
+            <h2>ABOUT US</h2><br>
+            <h4>The company was initially formed by two young entrepreneurs from Tamilnadu. Vishnubalaji and Raghul, the founders of the company, who completed their graduation from PSG College of Technology, Coimbatore. The name 'VRhere.com' was derived from there initial letters of their names (V)ishnubalaji, (R)aghul, that would be pronounced as "we are here".</h4><br>
+            <p>VRhere, is an Indian ridesharing company (TNC) offering services that include peer-to-peer ridesharing, ride service hailing, taxi. The company is based in Coimbatore, Tamilnadu, India. A variety of venture capitalists including Softbank have large stakes in the company.</p>
+            
+          </div>
+          <div class="col-sm-4">
+            <span class="glyphicon glyphicon-signal logo"></span>
+          </div>
+        </div>
+      </div>
+      <div id="services" class="container-fluid text-center">
+        <h2>SERVICES</h2>
+        <h4>What we offer</h4>
+        <br>
+        <div class="row slideanim">
+          <div class="col-sm-4">
+      
+            <span class="fas fa-handshake logo-small" ></span>
+            <h4>USER CARE</h4>
+            <p>24/7 User care. Immediate response from our care service.</p>
+          </div>
+          <div class="col-sm-4">
+            <span class="fas fa-heart logo-small" ></span>
+            <h4>LOVE</h4>
+            <p>Every travel you made will be fullfilled with love. </p>
+          </div>
+          <div class="col-sm-4">
+            <span class="far fa-clock logo-small" ></span>
+            <h4>JOB DONE</h4>
+            <p>More precise in time. </p>
+          </div>
+        </div>
+        <br><br>
+        <div class="row slideanim">
+          <div class="col-sm-4">
+            <span class="fas fa-rupee-sign logo-small" ></span>
+            <h4>PAY FOR THE DISTANCE</h4>
+            <p>Prices will be made accoring to the distance and time. </p>
+          </div>
+          <div class="col-sm-4">
+            <span class="far fa-id-card logo-small"></span>
+            <h4>AUTHENTICATION</h4>
+            <p>Users of VRhere.com are authenticated and trust worthy. </p>
+          </div>
+          <div class="col-sm-4">
+            <span class="fas fa-car-alt logo-small" ></span>
+            <h4>CAR TYPES</h4>
+            <p>Every types of cars are available - mini, macro, SUV. </p>
+          </div>
+        </div>
+      </div>
+      
+      
+      <!--RIDE BOOKING-->
+      <div id="contact" class="container-fluid bg-grey">
+        <h2 class="text-center">BOOK FOR RIDE</h2>
+        <div class="row">
+          <div class="col-sm-5">
+            <h2>Why us?</h2>
+            <p>We provide variety of services for the customers who wants to get a ride from places press the button below to book for a ride.</p>
+          </div>
+          <div class="col-sm-7 slideanim">
+            <form>
+              {% if messages %}
+                {% for message in messages %}
+                  {%ifequal message.tags "error"%}
+                    <div class="alert alert-danger">
+                        {{ message }}
+                    </div>  
+                  {%endifequal%}
+                  {%ifequal "success" message.tags%}
+                    <div class="alert alert-{{ message.tags }}">
+                        {{ message }}
+                    </div>
+                  {%endifequal%}
+
+                {% endfor %}
+              {% endif %}
+            <div class="row">
+              <div class="col-sm-6 form-group">
+                <input class="form-control" id="source" name="source" placeholder="Enter trip source" type="text" required>
+              </div>
+              <div class="col-sm-6 form-group">
+                <input class="form-control" id="destination" name="destination" placeholder="Enter trip destination" type="text" required>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-12 form-group">
+                <input type="hidden" name="username" value="{{username}}">
+                <input type="hidden" name="xpas" value="{{xpas}}">
+                <button type="submit" value="book" name="BOOK_A_RIDE" class="btn btn-lg" style = "background-color:#ff5d52;color:white;">CHECK FOR DRIVERS</button>
+              </div>
+            </div>
+            </div>
+          </form>
+          </div>
+        </div>
+      </div>
+    
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-12 text-right">
+                <br>
+                  <form>
+                    <input type="hidden" name="username" value="{{username}}">
+                    <input type="hidden" name="xpas" value="{{xpas}}">
+                    <button type="submit" value="refresh" name="cus_refresh" style = " background-color:#ff5d52;color:white;" class="btn btn-lg">REFRESH</button>
+                  </form>
+                </div>
+              <div class="col-lg-12 text-center">
+                <br>
+                  <h4>AWAITING RIDES</h4>
+                  <table class="table">
+                    <thead class="thead-dark">
+                      <tr>
+                        <th scope="col">User ID</th>
+                        <th scope="col">Pickup Location</th>
+                        <th scope="col">Drop Location</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {% for i in rides %}
+                      <tr>
+                      {% for j in i %}
+                      <td>{{j}}</td>
+                      {%endfor%}
+                      </tr>
+                      {%endfor%}
+                    </tbody>
+                  </table>
+              </div>
+            </div>
+        </div>
+
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-12 text-center">
+                <br>
+                  <h4>CURRENT RIDES</h4>
+                  <table class="table">
+                    <thead class="thead-dark">
+                      <tr>
+                        <th scope="col">Customer ID</th>
+                        <th scope="col">Driver ID</th>
+                        <th scope="col">From Location</th>
+                        <th scope="col">To Location</th>
+                        <th scope="col">Time of Departure</th>
+                        <th scope="col">Date of Departure</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {% for i in now_riding %}
+                      <tr>
+                      {% for j in i %}
+                      <td>{{j}}</td>
+                      {%endfor%}
+                      </tr>
+                      {%endfor%}
+                    </tbody>
+                  </table>
+              </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+              <div class="col-lg-12 text-center">
+                <br>
+                  <h4>TRIP HISTORY</h4>
+                  <table class="table">
+                    <thead class="thead-dark">
+                      <tr>
+                        <th scope="col">Tracking No</th>
+                        <th scope="col">Customer ID</th>
+                        <th scope="col">Driver ID</th>
+                        <th scope="col">From Location</th>
+                        <th scope="col">To Location</th>
+                        <th scope="col">Time of Departure</th>
+                        <th scope="col">Time of Arrival</th>
+                        <th scope="col">Date of Departure</th>
+                        <th scope="col">Billing Amount</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {% for i in history %}
+                      <tr>
+                      {% for j in i %}
+                      <td>{{j}}</td>
+                      {%endfor%}
+                      </tr>
+                      {%endfor%}
+                    </tbody>
+                  </table>
+              </div>
+            </div>
+        </div>
+      <!--<div class="container-fluid">
+          <div class="row">
+            <div class="col-sm-3 text-center">
+              
+            </div>    
+            <div class="col-sm-6 text-center">
+                <h2>Why us?</h2>
+                <p>We provide variety of services for the customers who wants to get a ride from places press the button below to book for a ride.</p>
+                <button type="button" id = "customer" data-toggle="modal" data-target="#bookride" style = " background-color:#ff5d52;color:white" class="btn btn-lg">BOOK A RIDE</button>
+                
+            </div>
+            <div class="col-sm-3 text-center">
+            </div>
+          </div>
+        </div>
+         BOOK A RIDE MODAL 
+        <div class="modal" id="bookride">
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content">
+              
+                 Modal Header 
+                                 <div class="modal-header">
+                  <h4 class="modal-title">BOOK FOR RIDE</h4>
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                
+                 Modal body 
+                <form method = "POST">
+                <div class="modal-body">
+                    
+                        <div class="form-group">
+                          <label for="source">Source</label>
+                          <input type="text" class="form-control" id="sourceinput" placeholder="Enter source location">
+                        </div>
+                        <div class="form-group">
+                          <label for="destinationinput">Destination</label>
+                          <input type="text" class="form-control" id="destinationinput" placeholder="Enter destination location">
+                        </div>
+                </div>
+                 Modal footer 
+                <div class="modal-footer">
+                  <button type="submit" class="btn" data-dismiss="modal">CHECK FOR DRIVERS</button>
+                </div>
+              </form>
+              </div>
+            </div>
+        </div>   -->   
+</body>
+<script>
+        $(document).ready(function(){
+          // Add smooth scrolling to all links in navbar + footer link
+          $(".navbar a, footer a[href='#myPage']").on('click', function(event) {
+            // Make sure this.hash has a value before overriding default behavior
+            if (this.hash !== "") {
+              // Prevent default anchor click behavior
+              event.preventDefault();
+        
+              // Store hash
+              var hash = this.hash;
+        
+              // Using jQuery's animate() method to add smooth page scroll
+              // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
+              $('html, body').animate({
+                scrollTop: $(hash).offset().top
+              }, 900, function(){
+           
+                // Add hash (#) to URL when done scrolling (default click behavior)
+                window.location.hash = hash;
+              });
+            } // End if
+          });
+          
+          $(window).scroll(function() {
+            $(".slideanim").each(function(){
+              var pos = $(this).offset().top;
+        
+              var winTop = $(window).scrollTop();
+                if (pos < winTop + 600) {
+                  $(this).addClass("slide");
+                }
+            });
+          });
+        })
+</script>
+        
+</html>

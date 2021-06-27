@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>VRhere.com</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+</head>
+<style>
+    body {
+      font: 400 15px Lato, sans-serif;
+      line-height: 1.8;
+      color: #818181;
+    }   
+    
+    .bg-grey {
+      background-color: #f6f6f6;
+    }
+    .logo-small {
+      color: #ff5d52;
+      font-size: 50px;
+    }
+    
+  
+    .navbar {
+      margin-bottom: 0;
+      background-color: #ff5d52;
+      z-index: 9999;
+      border: 0;
+      font-size: 12px !important;
+      line-height: 1.42857143 !important;
+      letter-spacing: 4px;
+      border-radius: 0;
+      font-family: Montserrat, sans-serif;
+    }
+    .navbar li a, .navbar .navbar-brand {
+      color: #fff !important;
+    }
+    .navbar-nav li a:hover, .navbar-nav li.active a {
+      color: #ff5d52 !important;
+      background-color: #fff !important;
+    }
+    .navbar-default .navbar-toggle {
+      border-color: transparent;
+      color: #fff !important;
+    }
+  
+   
+  
+    @keyframes slide {
+      0% {
+        opacity: 0;
+        transform: translateY(70%);
+      } 
+      100% {
+        opacity: 1;
+        transform: translateY(0%);
+      }
+    }
+    @-webkit-keyframes slide {
+      0% {
+        opacity: 0;
+        -webkit-transform: translateY(70%);
+      } 
+      100% {
+        opacity: 1;
+        -webkit-transform: translateY(0%);
+      }
+    }
+    @media screen and (max-width: 768px) {
+      .col-sm-4 {
+        text-align: center;
+        margin: 25px 0;
+      }
+      .btn-lg {
+        width: 100%;
+        margin-bottom: 35px;
+      }
+    }
+    @media screen and (max-width: 480px) {
+      .logo {
+        font-size: 150px;
+      }
+    }
+	
+	body {
+  margin: 0;
+}
+.page-content {
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  display: -webkit-flex;
+  justify-content: center;
+  -o-justify-content: center;
+  -ms-justify-content: center;
+  -moz-justify-content: center;
+  -webkit-justify-content: center;
+  align-items: center;
+  -o-align-items: center;
+  -ms-align-items: center;
+  -moz-align-items: center;
+  -webkit-align-items: center;
+}
+.form-v5-content {
+  background: #fff;
+  width: 950px;
+  border-radius: 8px;
+   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  -o-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
+  margin: 90px 0;
+  font-family: "Roboto", sans-serif;
+  color: #333;
+  font-weight: 300;
+  position: relative;
+  font-size: 18px;
+}
+.form-v5-content .form-detail {
+  padding: 15px 25px 10px 40px;
+  position: relative;
+}
+.form-detail h2 {
+  font-weight: 700;
+  font-size: 25px;
+  text-align: center;
+  position: relative;
+  padding: 3px 0 5px;
+  margin-bottom: 10px;
+}
+.form-detail h2::after {
+  background: #ff5d52;
+  width: 20px;
+  height: 2px;
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+}
+.form-detail .form-row {
+  position: relative;
+}
+.form-detail .form-row-last {
+  text-align: center;
+}
+.form-detail label {
+  display: block;
+  font-size: 18px;
+  padding-bottom: 10px;
+}
+.form-detail .input-text {
+  margin-bottom: 26px;
+}
+.form-detail input {
+  width: 94.5%;
+  padding: 10px 15px;
+  border: 1px solid #e5e5e5;
+  appearance: unset;
+  -moz-appearance: unset;
+  -webkit-appearance: unset;
+  -o-appearance: unset;
+  -ms-appearance: unset;
+  outline: none;
+  -moz-outline: none;
+  -webkit-outline: none;
+  -o-outline: none;
+  -ms-outline: none;
+  border-radius: 4px;
+  -o-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+}
+.form-detail input:focus {
+  border: 1px solid #ff5d52;
+}
+.form-detail .register {
+  font-size: 18px;
+  color: #fff;
+  background: #ff5d52;
+  border-radius: 5px;
+  -o-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  width: 150px;
+  box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.2);
+  -o-box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.2);
+  -ms-box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.2);
+  border: none;
+  margin: 19px 0 25px;
+  cursor: pointer;
+}
+.form-detail .register:hover {
+  background: #ff5d52;
+}
+.form-detail .form-row-last input {
+  padding: 14px;
+}
+.form-detail i {
+  font-size: 14px;
+  color: #999;
+  right: 15px;
+  top: 50%;
+  transform: translateX(-50%);
+  position: absolute;
+}
+input::-webkit-input-placeholder {
+  /* Chrome/Opera/Safari */
+  color: #999;
+  font-size: 16px;
+}
+input::-moz-placeholder {
+  /* Firefox 19+ */
+  color: #999;
+  font-size: 16px;
+}
+input:-ms-input-placeholder {
+  /* IE 10+ */
+  color: #999;
+  font-size: 16px;
+}
+input:-moz-placeholder {
+  /* Firefox 18- */
+  color: #999;
+  font-size: 16px;
+}
+
+/* Responsive */
+@media screen and (max-width: 767px) {
+  .form-v5-content {
+    margin: 175px 20px;
+  }
+}
+@font-face {
+  font-family: "Roboto";
+  src: url("../ttf/Roboto-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url("../ttf/Roboto-Thin.ttf") format("truetype");
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url("../ttf/Roboto-ThinItalic.ttf") format("truetype");
+  font-weight: 100;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url("../ttf/Roboto-MediumItalic.ttf") format("truetype");
+  font-weight: 500;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url("../ttf/Roboto-BoldItalic.ttf") format("truetype");
+  font-weight: bold;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url("../ttf/Roboto-LightItalic.ttf") format("truetype");
+  font-weight: 300;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url("../ttf/Roboto-Bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url("../ttf/Roboto-BlackItalic.ttf") format("truetype");
+  font-weight: 900;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url("../ttf/Roboto-Italic.ttf") format("truetype");
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url("../ttf/Roboto-Black.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url("../ttf/Roboto-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url("../ttf/Roboto-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+}
+
+</style>
+<body>
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>                        
+            </button>
+            <a class="navbar-brand" >VRhere</a>
+          </div>
+          <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="#" >Customer Signup</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      
+      <!-- <div class="container-fluid"> -->
+      <div class="row">
+		    <div class="form-v5">
+			    <div class="page-content">
+		  	    <div class="form-v5-content">
+              <form class="form-detail" method="POST" >
+              {% csrf_token %}
+			          <div class="col-sm-12"><h2>PERSONAL DETAILS</h2></div>
+			          <div class="row">
+				          <div class="col-sm-6">
+							      <div class="form-group">
+                      <label for="fname">First name</label>
+                      <input type="text" class="form-control form-control-lg" id="fname" placeholder="Enter your first name">
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+							      <div class="form-row">
+								      <label>Last name</label>
+                      <input type="text" name="lname" id="lname"  placeholder="Enter your last name" minlength="6" required/>
+							      </div>
+                  </div>
+                </div>
+                <div class = "row">
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <label >Gender</label>
+                        <select class="form-control form-control-lg" id="Gender">
+                          <option>Male</option>
+                          <option>Female</option>
+                        </select>
+                      </div>
+                  </div>
+                  <div class="col-sm-6">
+							      <div class="form-row">
+								      <label>Date of birth</label>
+                      <input type="text" name="lname" id="lname" placeholder="Enter your last name" minlength="6" required/>
+							      </div>
+                  </div>
+				        </div>
+
+                
+				
+			        </form>
+			      </div>
+			    </div>
+			  <div>
+			</div>      
+    </body>
+    <script>
+        $(document).ready(function(){
+          // Add smooth scrolling to all links in navbar + footer link
+          $(".navbar a, footer a[href='#myPage']").on('click', function(event) {
+            // Make sure this.hash has a value before overriding default behavior
+            if (this.hash !== "") {
+              // Prevent default anchor click behavior
+              event.preventDefault();
+        
+              // Store hash
+              var hash = this.hash;
+        
+              // Using jQuery's animate() method to add smooth page scroll
+              // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
+              $('html, body').animate({
+                scrollTop: $(hash).offset().top
+              }, 900, function(){
+           
+                // Add hash (#) to URL when done scrolling (default click behavior)
+                window.location.hash = hash;
+              });
+            } // End if
+          });
+          
+          $(window).scroll(function() {
+            $(".slideanim").each(function(){
+              var pos = $(this).offset().top;
+        
+              var winTop = $(window).scrollTop();
+                if (pos < winTop + 600) {
+                  $(this).addClass("slide");
+                }
+            });
+          });
+        })
+		
+		$(document).ready(function(){
+      var date_input=$('input[name="date"]'); //our date input has the name "date"
+      var container=$('.form-detail form').length>0 ? $('.form-detail form').parent() : "body";
+      var options={
+        format: 'mm/dd/yyyy',
+        container: container,
+        todayHighlight: true,
+        autoclose: true,
+      };
+      date_input.datepicker(options);
+    })
+        </script>
+        
+</html>

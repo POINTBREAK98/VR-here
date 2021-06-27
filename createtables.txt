@@ -1,0 +1,247 @@
+mysql command prompt login : 
+
+1. cd "C:\Program Files\MySQL\MySQL Server 8.0\bin"
+2. mysql -u root -p
+3. Password : Vishnu98@
+
+import mysql.connector
+
+mydb = mysql.connector.connect(
+  host="localhost",
+  user="yourusername",
+  passwd="yourpassword",
+  database="mydatabase"
+)
+
+mycursor = mydb.cursor()
+
+mycursor.execute("SELECT * FROM customers")
+
+myresult = mycursor.fetchall()
+
+---------------------
+import MySQLdb
+
+hostname = 'localhost'
+username = 'root'
+password = 'Vishnu98@'
+database = 'vrhere'
+
+# Simple routine to run a query on a database and print the results:
+def doQuery( conn ) :
+    cur = conn.cursor()
+
+    cur.execute( "SELECT fname, lname FROM employee" )
+
+    for firstname, lastname in cur.fetchall() :
+        print firstname, lastname
+
+
+print "Using MySQLdb…"
+
+myConnection = MySQLdb.connect( host=hostname, user=username, passwd=password, db=database )
+doQuery( myConnection )
+myConnection.close()
+--------------------------------------------------------------------
+
+CREATE TABLE USER (
+	Reg_No varchar (5) PRIMARY KEY,
+	Fname varchar (25) NOT NULL,
+	Lname varchar (25) NOT NULL, 
+	DOB date,
+	Gender varchar(6) NOT NULL,
+	Door_No varchar(5) NOT NULL,
+	House_name varchar (15),
+	Street varchar (20),
+	City varchar (15),
+	State varchar(20),
+	Zip_code MEDIUMINT
+);
+
+User_admin : 
+
+insert into user values('a1000','Vishnu','Balaji','1998-06-03','Male','10','Balaji Nivas','Indira nagar','Coimbatore','TamilNadu','641014');
+insert into user values('a1001','Raghul','A','1998-12-07','Male','7A','','Gandhi Managar','Neyveli','TamilNadu','607803');
+
+user customer : 
+
+insert into user values('c1001','Ashokraj','V','1998-01-22','Male','11A','Ashok Pillar','VS Street','Coimbatore','TamilNadu','641011');
+insert into user values('c1002','Jaya','Prakash','1989-11-07','Male','7B','JP illam','Ganapathy','Tirupur','TamilNadu','640011');
+insert into user values('c1003','Kumaresh','AT','1995-09-01','Male','10/B','Annai illam','Nehru nagar','Coimbatore','TamilNadu','641006');
+insert into user values('c1004','Balaji','C','1990-09-30','Male','8','','Avarampalayam','Coimbatore','TamilNadu','641004');
+insert into user values('c1005','Niranjan','R','1985-01-01','Male','25C','Nivas Illam','Indira nagar','Coimbatore','TamilNadu','641006');
+insert into user values('c1006','Harsha','Vardhan','1990-11-11','Male','13B','Vardhan illam','Cheran Managar','Coimbatore','TamilNadu','641002');
+insert into user values('c1007','Gowtham','Balaji','1993-08-12','Male','3A','Gowtham Nivas','VOC nagar','Coimbatore','TamilNadu','641014');
+insert into user values('c1008','Lokesh','Kumar','1999-12-12','Male','45C','','Lal bahadur colony','Coimbatore','TamilNadu','641004');
+insert into user values('c1009','Gokul','Krishnan','1998-10-30','Male','15C','','Ganapathy street','Coimbatore','TamilNadu','641003');
+insert into user values('c1010','Kathirvel','C','1998-02-02','Male','10A/B','','Chinniyampalyam','Coimbatore','TamilNadu','641014');
+
+user driver :
+
+insert into user values('d1001','Kamalesh','Ramchandran','1980-09-14','Male','13B','Lakshmi enclave','RS puram','Coimbatore','TamilNadu','641002');
+insert into user values('d1002','Gowtham','Prasath','1987-11-27','Male','10/1','Gowtham Illam','VOC nagar','Coimbatore','TamilNadu','641014');
+insert into user values('d1003','Hari','Krishnan','1988-10-10','Male','45B','Krishnna inn','Nehru street','Coimbatore','TamilNadu','641004');
+insert into user values('d1004','Ilavarasan','A','1986-04-06','Male','19C','','Ganapathy managar','Coimbatore','TamilNadu','641003');
+insert into user values('d1005','Bala','Krishnan','1980-01-17','Male','11A/B','','Neelambur','Coimbatore','TamilNadu','641014');
+
+
+
+CREATE TABLE ADMINISTRATOR (
+	Reg_No varchar (5),
+	User_id varchar (12) PRIMARY KEY,
+ 	Email varchar(30) UNIQUE,
+	Password varchar (15) NOT NULL,
+	designation varchar (12),
+	CONSTRAINT administrator_refer_user FOREIGN KEY (Reg_no) REFERENCES USER (reg_no),
+	CONSTRAINT administrator_user_check CHECK (LENGTH (user_id) >=6),
+	CONSTRAINT administrator_password_length CHECK (LENGTH (password) >=8 AND LENGTH (password)<15)
+);
+
+insert into administrator values('a1000','vishnu98','19mx126@gapps.psgtech.ac.in','qwerty98','manager');
+insert into administrator values('a1001','raghulrx','19mx212@gapps.psgtech.ac.in','qwerty98','manager');
+
+CREATE TABLE CUSTOMER (
+	Reg_No varchar (5),
+	User_id varchar (12) PRIMARY KEY,
+	Email varchar(30) UNIQUE,
+	Password varchar (15) NOT NULL,
+	Aadhar_number varchar (12),
+	CONSTRAINT customer_refer_user FOREIGN KEY (Reg_no) REFERENCES USER (reg_no),
+	CONSTRAINT customer_user_check CHECK (LENGTH (user_id) >=6),
+	CONSTRAINT customer_password_length CHECK (LENGTH (password) >=8 AND LENGTH (password)<15),
+	CONSTRAINT customer_aadhar_length CHECK (LENGTH (Aadhar_number) = 12)
+);
+
+insert into customer values('c1001','ashoksweet07','19mx101@gapps.psgtech.ac.in','qweasdzxc','431512564897');
+insert into customer values('c1002','jayajp23','19mx205@gapps.psgtech.ac.in','jp1234jaya','678542456310');
+insert into customer values('c1003','jammykumar','19mx207@gapps.psgtech.ac.in','jammy2020','500927785338');
+insert into customer values('c1004','balajic99','19mx203@gapps.psgtech.ac.in','BaLaJi99','890023771335');
+insert into customer values('c1005','niran001','19mx210@gapps.psgtech.ac.in','niran001','780090083089');
+insert into customer values('c1006','harsh007','19mx107@gapps.psgtech.ac.in','crisharsh7','690057889612');
+insert into customer values('c1007','gowtham88','19mx104@gapps.psgtech.ac.in','balajire350','389978865009');
+insert into customer values('c1008','loki1497','19mx113@gapps.psgtech.ac.in','lokipsg16','654319876245');
+insert into customer values('c1009','gokgoogle','19mx103@gapps.psgtech.ac.in','goksayan10','777895678901');
+insert into customer values('c1010','kathirc1998','19mx307@gapps.psgtech.ac.in','qwerty98','390078012786');
+
+CREATE TABLE CUSTOMER_MOBILE (
+	User_id varchar (12),
+	Mobile_number varchar (10),
+	CONSTRAINT customer_refer_user_id FOREIGN KEY (User_id) REFERENCES CUSTOMER (user_id),
+	CONSTRAINT customer_mobile_check CHECK (LENGTH (mobile_number) = 10)
+);
+
+insert into customer_mobile values('ashoksweet07','9987234017');
+insert into customer_mobile values('ashoksweet07','8412445560');
+insert into customer_mobile values('jayajp23','7865125673');
+insert into customer_mobile values('jammykumar','6387612240');
+insert into customer_mobile values('jammykumar','9842276657');
+insert into customer_mobile values('balajic99','9789900567');
+insert into customer_mobile values('niran001','8761322778');
+insert into customer_mobile values('niran001','9677781096');
+insert into customer_mobile values('harsh007','8886644277');
+insert into customer_mobile values('gowtham88','9566778857');
+insert into customer_mobile values('loki1497','9842828068');
+insert into customer_mobile values('gokgoogle','7890088775');
+insert into customer_mobile values('gokgoogle','6381009987');
+insert into customer_mobile values('kathirc1998','9998865432');
+
+
+CREATE TABLE DRIVER (
+	Reg_No varchar (5),
+	User_id varchar (12) PRIMARY KEY,
+	Email varchar(30) UNIQUE,
+	Password varchar (15) NOT NULL,
+	Aadhar_number varchar (12) NOT NULL,
+	Licence_number varchar (15) NOT NULL,
+	Registered_mobile_number varchar (10) NOT NULL,
+	CONSTRAINT driver_refer_user FOREIGN KEY (Reg_no) REFERENCES USER (reg_no),
+	CONSTRAINT driver_user_check CHECK (LENGTH (user_id) >=6),
+	CONSTRAINT driver_password_length CHECK (LENGTH (password) >=8 AND LENGTH (password)<15),
+	CONSTRAINT driver_aadhar_length CHECK (LENGTH (Aadhar_number) = 12),
+	CONSTRAINT driver_licence_length CHECK (LENGTH (Licence_number) = 15),
+	CONSTRAINT driver_mobile_check CHECK (LENGTH (registered_mobile_number) = 10)
+);
+
+insert into driver values('d1001','kama1497','kamalesh.ramchandran@gmail.com','kamaqwerty98','341087643390','TN9920000011180','9487737711');
+insert into driver values('d1002','gowdrossi','gowthamprasath7@gmail.com','rossy046','561345197768','TN3820100540080','9786647408');
+insert into driver values('d1003','krishnanhari','harikrish@gmail.com','qweasdzxc','600780056775','TN3720100033240','6381456398');
+insert into driver values('d1004','ila0406','ilavarasan@gmail.com','r15ciaz6','658944565556','TN9920070088890','9788945678');
+insert into driver values('d1005','balakarun','balakrish@gmail.com','ertdfgcvb','675498763008','TN6620000650080','9003398044');
+
+
+CREATE TABLE CAR (
+	Driver_id varchar (12),
+	RC_Number varchar (10) PRIMARY KEY,
+	Company varchar (15) NOT NULL,
+	Car_name varchar (15) NOT NULL,
+	Model Year (4),
+	capacity smallint,
+	Colour varchar (10),
+	CONSTRAINT car_refer_driver_id FOREIGN KEY (Driver_id) REFERENCES DRIVER (user_id),
+	CONSTRAINT car_rc_number_length CHECK (LENGTH (RC_number) > 7),
+	CONSTRAINT car_company_name_length CHECK (LENGTH (company) >=4),
+	CONSTRAINT car_name_length CHECK (LENGTH (car_name) >=3),
+	CONSTRAINT car_model_check CHECK (Model <= YEAR (SYSDATE())),
+	CONSTRAINT car_capacity_check CHECK (capacity >=1 AND capacity <= 7)
+);
+
+insert into car values('kama1497','TN99F9946','MARUTHI','Ciaz','2012','4','white');
+insert into car values('gowdrossi','TN38Q3322','FORD','Aspire','2015','4','white');
+insert into car values('krishnanhari','TN37BL6547','NISSAN','Micra','2015','4','white');
+insert into car values('ila0406','TN37WA8867','MARUTHI','Baleno','2016','4','white');
+insert into car values('balakarun','TN37BA9998','MAHINDRA','Travera','2013','7','white');
+
+
+
+CREATE TABLE DRIVER_LOG (
+	Driver_id varchar (12) UNIQUE,
+	Area varchar (15),
+	Status varchar (10),
+	activation_time TIME,
+	Date date,
+	CONSTRAINT log_refer_driver_id FOREIGN KEY (Driver_id) REFERENCES DRIVER (user_id)
+);
+	
+
+
+insert into driver_log values('kama1497','rspuram','available',CURTIME(),CURDATE());
+insert into driver_log values('gowdrossi','peelamedu','available',CURTIME(),CURDATE());
+
+
+
+	 
+CREATE TABLE TRIP_HISTORY ( 
+	S_no varchar (8) NOT NULL,
+	Customer_id varchar (12),
+	Driver_id varchar (12),
+	From_location varchar (15) NOT NULL,
+	To_location varchar (15) NOT NULL,
+	From_time time NOT NULL,
+	To_time time,
+	trip_date date,
+	Amount varchar (8),
+	PRIMARY KEY (Customer_id,Driver_id,From_time),
+	CONSTRAINT trip_refer_customer_id FOREIGN KEY (customer_id) REFERENCES CUSTOMER (user_id),
+	CONSTRAINT trip_refer_driver_id FOREIGN KEY (Driver_id) REFERENCES DRIVER (user_id)
+
+);
+
+CREATE TABLE CURRENT_RIDES (
+	Customer_id varchar (12),
+	Driver_id varchar (12),
+	From_location varchar (15) NOT NULL,
+	To_location varchar (15) NOT NULL,
+	From_time time NOT NULL,
+	trip_date date,
+	PRIMARY KEY (Customer_id,Driver_id),
+	CONSTRAINT trip_current_customer_id FOREIGN KEY (customer_id) REFERENCES CUSTOMER (user_id),
+	CONSTRAINT trip_current_driver_id FOREIGN KEY (Driver_id) REFERENCES DRIVER (user_id)
+
+);
+
+CREATE TABLE CUSTOMER_LOG (
+	Customer_id varchar (12),
+	From_location varchar (15) NOT NULL,
+	To_location varchar (15) NOT NULL,
+	CONSTRAINT customer_log_refer_customer_id FOREIGN KEY (customer_id) REFERENCES CUSTOMER (user_id)
+);
